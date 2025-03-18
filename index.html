@@ -8,13 +8,8 @@
 
     <title>Jay Shitesh da Silva - Portfolio</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/unicons.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-    <link rel="stylesheet" href="css/tooplate-style.css">
-    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
 
@@ -36,23 +31,11 @@
                         <a href="#about" class="nav-link"><span data-hover="About">About</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#resume" class="nav-link"><span data-hover="Resume">Resume</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
                     </li>
-                </ul>
-
-                <ul class="navbar-nav ml-lg-auto">
-                    <div class="ml-lg-4">
-                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
-                        <i class="color-mode-icon"></i>
-                        Color mode
-                      </div>
-                    </div>
                 </ul>
             </div>
         </div>
@@ -89,7 +72,7 @@
 
                 <div class="col-lg-5 col-md-12 col-12">
                     <div class="about-image svg">
-                        <img src="images/undraw/undraw_software_engineer_lvl5.svg" class="img-fluid" alt="svg image">
+                        <img src="images/undraw_software_engineer_lvl5.svg" class="img-fluid" alt="svg image">
                     </div>
                 </div>
 
@@ -143,7 +126,7 @@
                                 <span>2023</span>
                             </div>
                             <div class="timeline-info">
-                                <h3><span>Computer Science</span><small>Rotterdam University of Applied Sciences</small></h3>
+                                <h3><span class="blue-text">Computer Science</span><br><small class="blue-text">Rotterdam University of Applied Sciences</small></h3>
                                 <p>Now second-year Computer Science student, developing skills in software development and information technology. Obtained propedeuse in Computer Science with knowledge in frontend and backend development, including Python, C#, TypeScript, ReactJS, SQL.</p>
                             </div>
                         </div>
@@ -152,7 +135,7 @@
                                 <span>2022</span>
                             </div>
                             <div class="timeline-info">
-                                <h3><span>Business Administration</span><small>Erasmus University Rotterdam</small></h3>
+                                <h3><span class="blue-text">Business Administration</span><br><small class="blue-text">Erasmus University Rotterdam</small></h3>
                                 <p>Partially studied Business Administration before switching to Computer Science, realizing that it better matched my interests in technology and IT.</p>
                             </div>
                         </div>
@@ -161,7 +144,7 @@
                                 <span>2022</span>
                             </div>
                             <div class="timeline-info">
-                                <h3><span>VWO Economics & Society</span><small>Calvijn Zuider Gymnasium</small></h3>
+                                <h3><span class="blue-text">VWO Economics & Society</span><br><small class="blue-text">Calvijn Zuider Gymnasium</small></h3>
                                 <p>Graduated with a focus on Economics & Society, studying business economics and general economics.</p>
                             </div>
                         </div>
@@ -199,14 +182,42 @@
           </div>
      </footer>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/Headroom.js"></script>
-    <script src="js/jQuery.headroom.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/smoothscroll.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+      (function ($) {
+        "use strict";
+
+        // HEADER
+        $(".navbar").headroom();
+
+        // PROJECT CAROUSEL
+        $('.owl-carousel').owlCarousel({
+          items: 1,
+          loop:true,
+          margin:10,
+          nav:true
+        });
+
+        // SMOOTHSCROLL
+        $(function() {
+          $('.nav-link, .custom-btn-link').on('click', function(event) {
+            var $anchor = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $($anchor.attr('href')).offset().top - 49
+            }, 1000);
+            event.preventDefault();
+          });
+        });  
+
+        // TOOLTIP
+        $('.social-links a').tooltip();
+
+      })(jQuery);
+    </script>
 
   </body>
 </html>
